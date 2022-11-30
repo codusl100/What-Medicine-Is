@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button imageButton = (Button) findViewById(R.id.medicineinfo);
         Button imageButton2 = (Button) findViewById(R.id.pharmacy);
-        Button imageButton3 = (Button) findViewById(R.id.pharmacy);
+        Button imageButton3 = (Button) findViewById(R.id.health);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
 
@@ -41,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MedicineMap.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButton3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HealthInfo.class);
                 startActivity(intent);
             }
         });

@@ -31,6 +31,7 @@
         </activity>
         <activity android:name=".MedicineInfo"/>
         <activity android:name=".MedicineMap"/>
+        <activity android:name=".HealthInfo"/>
     </application>
     <meta-data
         android:name="com.kakao.sdk.AppKey"
