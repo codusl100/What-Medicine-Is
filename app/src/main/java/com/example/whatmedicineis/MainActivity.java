@@ -2,6 +2,7 @@ package com.example.whatmedicineis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        getAppKeyHash();
 
         Button imageButton = (Button) findViewById(R.id.medicineinfo);
+        Button imageButton2 = (Button) findViewById(R.id.pharmacy);
+        Button imageButton3 = (Button) findViewById(R.id.pharmacy);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
 
@@ -32,20 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imageButton2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MedicineMap.class);
+                startActivity(intent);
+            }
+        });
     }
-//    private void getAppKeyHash() {
-//        try {
-//            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-//            for (Signature signature : info.signatures) {
-//                MessageDigest md;
-//                md = MessageDigest.getInstance("SHA");
-//                md.update(signature.toByteArray());
-//                String something = new String(Base64.encode(md.digest(), 0));
-//                Log.e("Hash key", something);
-//            }
-//        } catch (Exception e) {
-//            // TODO Auto-generated catch block
-//            Log.e("name not found", e.toString());
-//        }
-//    }
 }
