@@ -2,12 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/INFO"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".MedicineInfo">
+    android:padding="10dp">
 
 
     <LinearLayout
@@ -27,6 +26,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:text="search"
+            android:onClick="mOnClick"
             android:textSize="12sp"/>
 
     </LinearLayout>
@@ -36,7 +36,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/resulttext"
+            android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="13sp"
