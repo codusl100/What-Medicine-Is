@@ -29,6 +29,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAdPu-9cag9Ya2JQm8qKtf0BOqHRV9JCT4"/>
+
+        <!-- 안드로이드 파이 버전부터 필요 -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
         <activity android:name=".MedicineInfo"/>
         <activity android:name=".MedicineMap"/>
         <activity android:name=".HealthInfo"/>

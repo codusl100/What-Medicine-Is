@@ -2,7 +2,9 @@ package com.example.whatmedicineis;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -19,60 +22,55 @@ import java.util.Timer;
 public class MedicineInfo extends AppCompatActivity {
     final static String TAG = "Medicine";
 
-
+    private String Medicine_data;
     EditText edit;
-    TextView Medicine_text;
-    String Medicine_data;
-    String serviceKey = "service Key";
-
+    TextView Medicine_info;
+    TextView result;
+    String serviceKey = "OXdYmp2R87KM6WBJDET4ITb2bqp5BmYkfEftSnKiAZJWZh%2BbTg45Pov36PQwMjqpTVm%2FdsALOELrjIVFb7%2B3hw%3D%3D";
+    Button searchbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medicine_info);
 
-        Medicine_text = (TextView) findViewById(R.id.medicineinfo);
-        edit = (EditText) findViewById(R.id.edit);
-
+        // 약 정보 찾기 페이지
+        Medicine_info = (TextView) findViewById(R.id.medicineinfo);
+        // 약 이름 입력
+        edit = findViewById(R.id.edit);
+        // 결과값
+        result = (TextView) findViewById(R.id.resulttext);
+        // 버튼
+        searchbtn = (Button) findViewById(R.id.searchbtn);
+        searchbtn.setOnClickListener(listener);
     }
 
-    //Button을 클릭했을 때 자동으로 호출되는 callback method
-    public void mOnClick(View v) {
-
-        switch (v.getId()) {
-            case R.id.button:
-                new Thread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        // TODO Auto-generated method stub
-                        Medicine_data = getMedicineXmlData();
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                // TODO Auto-generated method stub
-                                Medicine_text.setText(Medicine_data);
-                            }
-                        });
-
-                    }
-                }).start();
-
-                break;
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Medicine_data = getMedicineXmlData(edit.getText().toString());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            result.setText(Medicine_data);
+                        }
+                    });
+                }
+            }).start();
         }
-
-    }
+    };
 
     // xml parsing part
-    String getMedicineXmlData() {
+    String getMedicineXmlData(String itemName) {
         StringBuffer buffer = new StringBuffer();
 
         String str= edit.getText().toString();
-        String itemName = URLEncoder.encode(str);
 
 
-        String queryUrl = "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?itemName=" + itemName + "&ServiceKey=" + serviceKey;
+        String queryUrl = "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?ServiceKey=" + serviceKey + "&itemName=" + itemName;
         ;
 
         try {

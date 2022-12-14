@@ -20,15 +20,14 @@
             android:id="@+id/edit"
             android:layout_width="250dp"
             android:layout_height="match_parent"
-            android:hint="enter text to search"/>
+            android:hint="약 이름을 입력하세요"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/searchbtn"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:text="search"
-            android:textSize="12sp"
-            android:onClick="mOnClick"/>
+            android:textSize="12sp"/>
 
     </LinearLayout>
 
@@ -37,7 +36,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/resulttext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="13sp"

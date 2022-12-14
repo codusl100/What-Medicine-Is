@@ -20,9 +20,9 @@ public class HealthInfo extends AppCompatActivity {
     String[] titles = {
             "건강하게 살 빼는 법",
             "비염에 좋은 약",
-            "환절기 챙겨야할 것들",
+            "환절기 건강 관리법!                         ",
             "관절염 예방에 좋은 운동",
-            "당뇨 극복 저당 음식들",
+            "고혈압/당뇨 건강 관리",
             "하루 4분 명상",
             "눈건강에 도움되는 눈 운동"
     };
