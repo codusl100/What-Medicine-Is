@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.whatmedicineis">
     <!--필요한 권한 생성-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <permission android:name="com.example.my38_locationmap.permission.MAPS_RECEIVE"
         android:protectionLevel="signature"/>
 
@@ -45,7 +47,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAdPu-9cag9Ya2JQm8qKtf0BOqHRV9JCT4"/>
+            android:value=""/>
 
         <!-- 안드로이드 파이 버전부터 필요 -->
         <uses-library
@@ -55,7 +57,5 @@
         <activity android:name=".MedicineMap"/>
         <activity android:name=".HealthInfo"/>
     </application>
-    <meta-data
-        android:name="com.kakao.sdk.AppKey"
-        android:value="c5c939fe65b49ecfea2aaa0519a7f322" />
+
 </manifest>

@@ -28,7 +28,7 @@ public class MedicineInfo extends AppCompatActivity {
     TextView result;
     XmlPullParser xpp;
 
-    String serviceKey = "OXdYmp2R87KM6WBJDET4ITb2bqp5BmYkfEftSnKiAZJWZh%2BbTg45Pov36PQwMjqpTVm%2FdsALOELrjIVFb7%2B3hw%3D%3D";
+    String serviceKey = "";
     String data;
 
     @Override
@@ -70,7 +70,6 @@ public class MedicineInfo extends AppCompatActivity {
 
         String str= edit.getText().toString(); // editText에 작성된 text 얻어오기
         String name = URLEncoder.encode(str, "UTF-8");
-        String query="%EC%A0%84%EB%A0%A5%EB%A1%9C";
 
         String queryUrl = "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?ServiceKey=" + serviceKey + "&itemName=" + name;
 
