@@ -11,23 +11,40 @@
         android:layout_height="200dp"
         android:background="@drawable/pills" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이게 뭐약"/>
+        android:layout_width="222dp"
+        android:layout_height="78dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/a4"
+        android:text="이게뭐약"
+        android:textSize="45dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="20dp"
+        />
     <Button
         android:id="@+id/medicineinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="약 알아보기"/>
+        android:text="약 알아보기"
+        android:layout_width="204dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/a2"
+        android:layout_marginTop="20dp"/>
     <Button
         android:id="@+id/pharmacy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="내 주변 약국"/>
+        android:text="내 주변 약국"
+        android:layout_width="204dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/a2"
+        android:layout_marginTop="15dp"
+        />
     <Button
         android:id="@+id/health"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="건강 정보"/>
+        android:text="건강 정보"
+        android:layout_width="204dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/a2"
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>
