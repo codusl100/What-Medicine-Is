@@ -10,7 +10,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="80dp" />
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/title"
@@ -18,6 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/image"
         android:layout_toRightOf="@id/image"
+        android:fontFamily="@font/a3"
+        android:layout_marginTop="10dp"
         android:textSize="17dp"
         android:textStyle="bold" />
 
@@ -28,6 +30,8 @@
         android:layout_below="@id/title"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/image"
+        android:fontFamily="@font/a2"
+        android:lineSpacingExtra="3dp"
         android:textColor="#666666"
         android:textSize="13dp" />
 
@@ -37,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:fontFamily="@font/a1"
         android:textColor="#888888"
         android:textSize="12dip" />
 
