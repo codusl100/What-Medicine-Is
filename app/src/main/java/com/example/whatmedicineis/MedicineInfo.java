@@ -94,15 +94,10 @@ public class MedicineInfo extends AppCompatActivity {
                     case XmlPullParser.START_TAG:
                         tag = xpp.getName();
 
-                        if (tag.equals("item")) ;
-                        else if (tag.equals("entpName")) {
-                            buffer.append("약 제조사 : ");
-                            xpp.next();
-                            buffer.append("\n\n");
-                        }
-                        else if (tag.equals("useMethodQesitm")) {
+                        if (tag.equals("useMethodQesitm")) {
                             buffer.append("사용 방법 : ");
                             xpp.next();
+                            buffer.append(xpp.getText());
                             buffer.append("\n\n");
                         }
                         else if (tag.equals("itemName")) {
@@ -113,13 +108,10 @@ public class MedicineInfo extends AppCompatActivity {
                         } else if (tag.equals("atpnWarnQesitm")) {
                             buffer.append("주의사항 경고 : ");
                             xpp.next();
+                            buffer.append(xpp.getText());
                             buffer.append("\n\n");
                         } else if (tag.equals("atpnQesitm")) {
                             buffer.append("주의사항 : ");
-                            xpp.next();
-                            buffer.append("\n\n");
-                        } else if (tag.equals("intrcQesitm")) {
-                            buffer.append("상호작용 : ");
                             xpp.next();
                             buffer.append(xpp.getText());
                             buffer.append("\n\n");
@@ -131,13 +123,7 @@ public class MedicineInfo extends AppCompatActivity {
                         } else if (tag.equals("depositMethodQesitm")) {
                             buffer.append("보관법 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());
-                            buffer.append("\n\n");
-                        }
-                        else if (tag.equals("itemImage")) {
-                            buffer.append("약 사진 : ");
-                            xpp.next();
-                            buffer.append(xpp.getText());
+                            buffer.append(RemoveHTMLTag(xpp.getText()));
                             buffer.append("\n\n");
                             buffer.append("-----------------------------\n\n");
                         }
@@ -157,11 +143,16 @@ public class MedicineInfo extends AppCompatActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
-            // TODO Auto-generated catch blocke.printStackTrace();
         }
-
-        buffer.append("파싱 끝\n");
         return buffer.toString();//StringBuffer 문자열 객체 반환
+    }
+    public String RemoveHTMLTag(String changeStr){
+        if(changeStr != null && !changeStr.equals("")){
+            changeStr = changeStr.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+        }else{
+            changeStr = "";
+        }
+        return changeStr;
     }
 }
 
